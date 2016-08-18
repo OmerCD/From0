@@ -4,8 +4,9 @@ using System.Collections;
 public class Zaman : MonoBehaviour {
     public Transform ışık;
     const float katFarkı = 0.125f;
-    public float saat;
-    public float dakika;
+    float saat;
+    float dakika;
+    public UnityEngine.UI.Text saatGöstergesi;
     public float Saat
     {
         get { return saat; }
@@ -39,6 +40,9 @@ public class Zaman : MonoBehaviour {
             }
             
         }
+        string gösterilecekSaat = saat < 10 ? '0' + saat.ToString() + ':': saat.ToString() + ':';
+        gösterilecekSaat += dakika < 10 ? '0' + dakika.ToString() : dakika.ToString();
+        saatGöstergesi.text = gösterilecekSaat;
         ışık.rotation = Quaternion.Euler(((60 * saat + dakika) * katFarkı), 0, 0);
     }
 }

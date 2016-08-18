@@ -11,12 +11,13 @@ public class ŞehirOluştur : MonoBehaviour
     int binaİzi = 3;
     void Awake()
     {
+        float kaynak = Random.Range(0, 100);
         haritaAlanı = new int[haritaGenişlik, haritaYükseklik];
         for (int x = 0; x < haritaGenişlik; x++)
         {
             for (int y = 0; y < haritaYükseklik; y++)
             {
-                haritaAlanı[x, y] = (int)(Mathf.PerlinNoise(x * 0.1f, y * 0.1f) * 10);
+                haritaAlanı[x, y] = (int)(Mathf.PerlinNoise(x * 0.1f+kaynak, y * 0.1f+kaynak) * 10);
             }
         }
         int x1 = 0;
@@ -86,14 +87,17 @@ public class ŞehirOluştur : MonoBehaviour
                     Instantiate(binalar[binaSırası], poz, Quaternion.identity);
                 else if (binaSırası<-2)
                 {
+                    poz = new Vector3(poz.x, dörtYol.transform.position.y, poz.z);
                     Instantiate(dörtYol, poz, dörtYol.transform.rotation);
                 }
                 else if (binaSırası<-1)
                 {
+                    poz = new Vector3(poz.x, xYol.transform.position.y, poz.z);
                     Instantiate(xYol, poz, xYol.transform.rotation);
                 }
                 else if (binaSırası < 0)
                 {
+                    poz = new Vector3(poz.x, zYol.transform.position.y, poz.z);
                     Instantiate(zYol, poz, zYol.transform.rotation);
                 }
             }

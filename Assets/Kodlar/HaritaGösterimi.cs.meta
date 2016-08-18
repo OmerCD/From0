@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: dfccb932d8ac33143842a415b23124a7
+timeCreated: 1471512205
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - haritaResmi: {fileID: 8400000, guid: a6bbfe52cd70f3a4cb6a5d26d7feb6b5, type: 2}
+  - haritaMateryal: {fileID: 2100000, guid: 11847cb6f0636bd418bc25b066cb4411, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

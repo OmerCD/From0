@@ -2,7 +2,7 @@
 public class Para : MonoBehaviour
 {
     private float para;
-
+    public UnityEngine.UI.Text paraGöstergesi;
     public float ParaBirim
     {
         get
@@ -13,6 +13,11 @@ public class Para : MonoBehaviour
         set
         {
             para = value;
+            ParaGöster(para);
         }
+    }
+    void ParaGöster(float yeniPara)
+    {
+        paraGöstergesi.text = yeniPara.ToString();
     }
 }

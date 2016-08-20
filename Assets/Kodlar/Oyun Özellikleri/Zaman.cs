@@ -40,9 +40,9 @@ public class Zaman : MonoBehaviour {
             }
             
         }
-        string gösterilecekSaat = saat < 10 ? '0' + saat.ToString() + ':': saat.ToString() + ':';
-        gösterilecekSaat += dakika < 10 ? '0' + dakika.ToString() : dakika.ToString();
-        saatGöstergesi.text = gösterilecekSaat;
+        //string gösterilecekSaat = saat < 10 ? '0' + saat.ToString() + ':': saat.ToString() + ':';
+        //gösterilecekSaat += dakika < 10 ? '0' + dakika.ToString() : dakika.ToString();
+        saatGöstergesi.text = saat.ToString("00")+':'+dakika.ToString("00");
         ışık.rotation = Quaternion.Euler(((60 * saat + dakika) * katFarkı), 0, 0);
     }
 }

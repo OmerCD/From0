@@ -5,12 +5,15 @@ public class ŞehirOluştur : MonoBehaviour
 {
 
     public GameObject[] binalar;
+    public GameObject ayarlarObjesi;
     public GameObject xYol, zYol, dörtYol;
     int[,] haritaAlanı;
     public int haritaGenişlik = 20, haritaYükseklik = 20;
     int binaİzi = 3;
     void Awake()
     {
+        Vector2 alanGenelBüyüklüğü = new Vector2(haritaGenişlik, haritaYükseklik);
+        Vector3 genelSolAlt = transform.position - Vector3.right * alanGenelBüyüklüğü.x * 0.5f*binaİzi - Vector3.forward * alanGenelBüyüklüğü.y * 0.5f*binaİzi;
         float kaynak = Random.Range(0, 100);
         haritaAlanı = new int[haritaGenişlik, haritaYükseklik];
         for (int x = 0; x < haritaGenişlik; x++)
@@ -82,7 +85,8 @@ public class ŞehirOluştur : MonoBehaviour
                 {
                     binaSırası = 5;
                 }
-                Vector3 poz = new Vector3(x * binaİzi, 0, y * binaİzi);
+                Vector3 poz = genelSolAlt + Vector3.right * (x * binaİzi) + Vector3.forward * (y * binaİzi);
+                poz.y = 0;
                 if (binaSırası < binalar.Length && binaSırası>=0)
                     Instantiate(binalar[binaSırası], poz, Quaternion.identity);
                 else if (binaSırası<-2)
@@ -102,5 +106,6 @@ public class ŞehirOluştur : MonoBehaviour
                 }
             }
         }
+        Instantiate(ayarlarObjesi);
     }
 }

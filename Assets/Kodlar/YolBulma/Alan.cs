@@ -16,7 +16,7 @@ public class Alan : MonoBehaviour
 
     float noktaÇap;
     int alanBüyüklüğüX, alanBüyüklüğüY;
-    void Start()
+    void Awake()
     {
         noktaÇap = noktaYarıçap * 2;
         alanBüyüklüğüX = Mathf.RoundToInt(alanGenelBüyüklüğü.x / noktaÇap);
@@ -95,7 +95,22 @@ public class Alan : MonoBehaviour
         {
             foreach (Nokta item in alan)
             {
-                Gizmos.color = item.geçilebilir ? Color.white : Color.red;
+                if ((Physics.CheckSphere(item.genelPozisyon, noktaYarıçap, yürünemezMaske)))
+                {
+                    Gizmos.color = Color.red;
+                }
+                else if ((Physics.CheckSphere(item.genelPozisyon, noktaYarıçap, yürüneblirAlanlar[2].zeminMaskesi)))
+                {
+                    Gizmos.color = Color.green;
+                }
+                else if ((Physics.CheckSphere(item.genelPozisyon, noktaYarıçap, yürüneblirAlanlar[0].zeminMaskesi)))
+                {
+                    Gizmos.color = Color.blue;
+                }
+                else if((Physics.CheckSphere(item.genelPozisyon, noktaYarıçap, yürüneblirAlanlar[1].zeminMaskesi)))
+                {
+                    Gizmos.color = Color.yellow;
+                }                
                 Gizmos.DrawCube(item.genelPozisyon, Vector3.one * (noktaÇap - .1f));
             }
         }

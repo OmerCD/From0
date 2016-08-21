@@ -7,8 +7,10 @@ public abstract class Ev : Bina {
     {
         Kiralık,
         Satılık,
+        Kiracı,
+        Sahip,
         Yok
     }
     public int metreKare;
-    public float aylıkÜcret,satınAlmaÜcreti;
+    public float haftalıkÜcret,satınAlmaÜcreti;
 }

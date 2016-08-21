@@ -50,7 +50,6 @@ public class ŞehirOluştur : MonoBehaviour
             z1 += Random.Range(2, 20);
             if (z1 >= haritaYükseklik) break;
         }
-        //float kaynak= Random.Range(0, 100);
         for (int x = 0; x < haritaGenişlik; x++)
         {
             for (int y = 0; y < haritaYükseklik; y++)

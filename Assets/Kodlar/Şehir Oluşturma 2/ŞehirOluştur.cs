@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ŞehirOluştur : MonoBehaviour
 {
-
+    public Transform Oyuncu;
     public EtkileşimliBina[] özelBinalar;
     public GameObject[] binalar;
     public GameObject ayarlarObjesi;
@@ -61,6 +61,10 @@ public class ŞehirOluştur : MonoBehaviour
                 Vector3 poz = genelSolAlt + Vector3.right * (koyulacakYerler[q].x * binaİzi) + Vector3.forward * (koyulacakYerler[q].y * binaİzi);
                 poz.y = 0;
                 Instantiate(özelBinalar[i].bina, poz, Quaternion.identity);
+                if (i==0)
+                {
+                    Oyuncu.position = new Vector3(poz.x + 0.277f, Oyuncu.position.y, poz.z + 1.5f);
+                }
                 haritaAlanı[(int)koyulacakYerler[q].x, (int)koyulacakYerler[q].y] = 42;
             }
 

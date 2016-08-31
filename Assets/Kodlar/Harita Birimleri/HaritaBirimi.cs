@@ -17,7 +17,10 @@ public abstract class HaritaBirimi : MonoBehaviour
     void OnTriggerExit(Collider obje)
     {
         if (obje.tag == "Oyuncu")
+        {
             aktiviteTuşu.enabled = etkileşimAçık = false;
+            BilgiPaneli.gösterim(false);
+        }
     }
     void Update()
     {
@@ -25,6 +28,7 @@ public abstract class HaritaBirimi : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
+                BilgiPaneli.gösterim(true);
                 Debug.Log("Oldu");
             }
         }

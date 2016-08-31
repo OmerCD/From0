@@ -84,6 +84,7 @@
     <Compile Include="Assets\Kodlar\HaritaGösterimi.cs" />
     <Compile Include="Assets\Kodlar\HaritaKamerası.cs" />
     <Compile Include="Assets\Kodlar\KameraAyarları.cs" />
+    <Compile Include="Assets\Kodlar\Oyun Özellikleri\BilgiPaneli.cs" />
     <Compile Include="Assets\Kodlar\Oyun Özellikleri\HaritaİmleçKontrolcüsü.cs" />
     <Compile Include="Assets\Kodlar\Oyun Özellikleri\Para.cs" />
     <Compile Include="Assets\Kodlar\Oyun Özellikleri\Zaman.cs" />

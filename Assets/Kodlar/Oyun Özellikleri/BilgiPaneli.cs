@@ -18,11 +18,11 @@ public class BilgiPaneli : MonoBehaviour {
     {
         set
         {
-           enabled = value;
+            gameObject.SetActive(value);
         }
         get
         {
-            return enabled;
+            return gameObject.activeSelf;
         }
     }
 }

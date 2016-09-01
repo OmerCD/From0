@@ -29,6 +29,7 @@ public abstract class HaritaBirimi : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 BilgiPaneli.gösterim(true);
+                aktiviteTuşu.enabled = etkileşimAçık = false;
                 Debug.Log("Oldu");
             }
         }

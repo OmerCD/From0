@@ -5,6 +5,7 @@ public abstract class HaritaBirimi : MonoBehaviour
 {
     UnityEngine.UI.Image aktiviteTuşu;
     protected bool etkileşimAçık = false;
+    public string isim;
     void Start()
     {
         aktiviteTuşu = GameObject.Find("E Tuşu").GetComponent<UnityEngine.UI.Image>();
@@ -19,7 +20,7 @@ public abstract class HaritaBirimi : MonoBehaviour
         if (obje.tag == "Oyuncu")
         {
             aktiviteTuşu.enabled = etkileşimAçık = false;
-            BilgiPaneli.gösterim(false);
+            BilgiPaneli.gösterim(false,this);
         }
     }
     void Update()
@@ -28,7 +29,7 @@ public abstract class HaritaBirimi : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                BilgiPaneli.gösterim(true);
+                BilgiPaneli.gösterim(true,this);
                 aktiviteTuşu.enabled = etkileşimAçık = false;
                 Debug.Log("Oldu");
             }

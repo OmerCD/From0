@@ -64,6 +64,7 @@ public class ŞehirOluştur : MonoBehaviour
                 if (i==0)
                 {
                     Oyuncu.position = new Vector3(poz.x + 0.277f, Oyuncu.position.y, poz.z + 1.5f);
+                    GameObject.Find("Oyun Özellikleri").GetComponent<Para>().GiderEkle("Ev Kirası", özelBinalar[0].bina.GetComponent<Ev>().haftalıkÜcret);
                 }
                 haritaAlanı[(int)koyulacakYerler[q].x, (int)koyulacakYerler[q].y] = 42;
             }

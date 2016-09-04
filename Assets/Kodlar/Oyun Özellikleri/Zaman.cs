@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class Zaman : MonoBehaviour {
     public Transform ışık;
     const float katFarkı = 0.125f;
     float saat;
     float dakika;
-    public UnityEngine.UI.Text saatGöstergesi;
+    public UnityEngine.UI.Text saatGöstergesi,tarihGöstergesi;
+    DateTime tarih;
     public float Saat
     {
         get { return saat; }
@@ -24,11 +26,13 @@ public class Zaman : MonoBehaviour {
 	void Start () {
         saat = 0;
         dakika = 0;
-	}
+        tarih = DateTime.Parse("01.01.2015");
+        tarihGöstergesi.text = "01.01.2015";
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        dakika += Time.deltaTime;
+        dakika += Time.deltaTime*150;
         if (dakika>59)
         {
             dakika = 0;
@@ -37,6 +41,8 @@ public class Zaman : MonoBehaviour {
             if (saat>=24)
             {
                 saat = 0;
+                tarih=tarih.AddDays(1);
+                tarihGöstergesi.text = tarih.ToString("dd.MM.yyyy");
             }
             
         }

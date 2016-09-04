@@ -19,10 +19,11 @@ public class BilgiPaneli : MonoBehaviour {
         }
         if (birim is Bina)
         {
-            if (birim is Ev) //Bina durum göstermi koyulmadı
+            if (birim is Ev)
             {
                 Ev gösterilecekEv = (Ev)birim;
                 isimAlanı.text = gösterilecekEv.isim;
+                durumAlanı.text = gösterilecekEv.durumAdları[(int)gösterilecekEv.evDurumu];
                 fiyatAlanı.text = gösterilecekEv.değer.ToString();
             }
         }

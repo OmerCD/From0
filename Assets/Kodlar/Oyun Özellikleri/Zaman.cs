@@ -3,11 +3,13 @@ using System.Collections;
 using System;
 
 public class Zaman : MonoBehaviour {
+    public Para paraSistemi;
     public Transform ışık;
     const float katFarkı = 0.125f;
     float saat;
     float dakika;
     public UnityEngine.UI.Text saatGöstergesi,tarihGöstergesi;
+    byte yediGünKontrol = 1;
     DateTime tarih;
     public float Saat
     {
@@ -32,14 +34,19 @@ public class Zaman : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        dakika += Time.deltaTime*150;
+        dakika += Time.deltaTime*250;
         if (dakika>59)
         {
             dakika = 0;
             saat++;
-            
             if (saat>=24)
             {
+                yediGünKontrol++;
+                if (yediGünKontrol==7)
+                {
+                    yediGünKontrol = 1;
+                    paraSistemi.ParaBirim += paraSistemi.ToplamGelir - paraSistemi.ToplamGider;
+                }
                 saat = 0;
                 tarih=tarih.AddDays(1);
                 tarihGöstergesi.text = tarih.ToString("dd.MM.yyyy");

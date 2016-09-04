@@ -43,6 +43,30 @@ public class Para : MonoBehaviour
     {
         return gelirler[gelirAdı];
     }
+    public float ToplamGider
+    {
+        get
+        {
+            float toplamGider = 0;
+            foreach (KeyValuePair<string,float> item in giderler)
+            {
+                toplamGider += item.Value;
+            }
+            return toplamGider;
+        }
+    }
+    public float ToplamGelir
+    {
+        get
+        {
+            float toplamGelir = 0;
+            foreach (KeyValuePair<string, float> item in gelirler)
+            {
+                toplamGelir += item.Value;
+            }
+            return toplamGelir;
+        }
+    }
     #endregion
     public float ParaBirim
     {

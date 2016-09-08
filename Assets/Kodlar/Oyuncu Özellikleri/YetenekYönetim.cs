@@ -4,7 +4,11 @@ using System;
 
 public class YetenekYönetim : MonoBehaviour
 {
+    Yetenekler oyuncuYetenekleri;
     public string[] yetenekAdları;
+    public GameObject yetenekObjesi;
+    public GameObject yeteneklerAlanı;
+    public Transform yetenekEklenecekAlan;
     class Yetenekler
     {
         const int YETENEK_ZORLUK_KATSAYISI = 2;
@@ -67,6 +71,13 @@ public class YetenekYönetim : MonoBehaviour
                 }
             }
         }
+        public int Adet
+        {
+            get
+            {
+                return sYetenekler.Length;
+            }
+        }
     }
     class Yetenek
     {
@@ -117,7 +128,7 @@ public class YetenekYönetim : MonoBehaviour
     void Start()
     {
         Zaman.haftaDeğişti += HaftaDeğişimi;
-        Yetenekler oyuncuYetenekleri = new Yetenekler(yetenekAdları);
+        oyuncuYetenekleri = new Yetenekler(yetenekAdları);
     }
     void HaftaDeğişimi() //Çalışılmayan yetenekler her hafta geçtiğinde burada körertilebilir
     {
@@ -133,6 +144,20 @@ public class YetenekYönetim : MonoBehaviour
 
     private void YetenekleriGöster() // Yetenek Bilgi ekranı göstertilecek
     {
-        throw new NotImplementedException();
+        yeteneklerAlanı.SetActive(!yeteneklerAlanı.activeSelf);
+        if (!yeteneklerAlanı.activeSelf)
+        {
+            for (int i = 0; i < yetenekEklenecekAlan.childCount; i++)
+            {
+                Destroy(yetenekEklenecekAlan.GetChild(i).gameObject);
+            }
+            return;
+        }
+        for (int i = 0; i < oyuncuYetenekleri.Adet; i++)
+        {
+            GameObject geç = Instantiate(yetenekObjesi);
+            geç.transform.parent = yetenekEklenecekAlan;
+            geç.GetComponentInChildren<UnityEngine.UI.Text>().text = oyuncuYetenekleri[i].YetenekAdı + " - " + ((int)oyuncuYetenekleri[i].YetenekSeviyesi).ToString();
+        }
     }
 }

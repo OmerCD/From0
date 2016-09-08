@@ -88,6 +88,7 @@
     <Compile Include="Assets\Kodlar\Oyun Özellikleri\HaritaİmleçKontrolcüsü.cs" />
     <Compile Include="Assets\Kodlar\Oyun Özellikleri\Para.cs" />
     <Compile Include="Assets\Kodlar\Oyun Özellikleri\Zaman.cs" />
+    <Compile Include="Assets\Kodlar\Oyuncu Özellikleri\YetenekYönetim.cs" />
     <Compile Include="Assets\Kodlar\YolBulma\Alan.cs" />
     <Compile Include="Assets\Kodlar\YolBulma\Nokta.cs" />
     <Compile Include="Assets\Kodlar\YolBulma\TestBirim.cs" />

@@ -3,7 +3,8 @@ using System.Collections;
 using System;
 
 public class Zaman : MonoBehaviour {
-    public Para paraSistemi;
+    public delegate void TarihDeğişimi();
+    public static TarihDeğişimi günDeğişti,haftaDeğişti;
     public Transform ışık;
     const float katFarkı = 0.125f;
     float saat;
@@ -26,12 +27,24 @@ public class Zaman : MonoBehaviour {
     }
 	// Use this for initialization
 	void Start () {
+        günDeğişti = new TarihDeğişimi(GünDeğişimi);
         saat = 0;
         dakika = 0;
         tarih = DateTime.Parse("01.01.2015");
         tarihGöstergesi.text = "01.01.2015";
     }
-	
+	void GünDeğişimi()
+    {
+        yediGünKontrol++;
+        if (yediGünKontrol == 7)
+        {
+            haftaDeğişti();
+            yediGünKontrol = 1;
+        }
+        saat = 0;
+        tarih = tarih.AddDays(1);
+        tarihGöstergesi.text = tarih.ToString("dd.MM.yyyy");
+    }
 	// Update is called once per frame
 	void Update () {
         dakika += Time.deltaTime*250;
@@ -41,20 +54,10 @@ public class Zaman : MonoBehaviour {
             saat++;
             if (saat>=24)
             {
-                yediGünKontrol++;
-                if (yediGünKontrol==7)
-                {
-                    yediGünKontrol = 1;
-                    paraSistemi.ParaBirim += paraSistemi.ToplamGelir - paraSistemi.ToplamGider;
-                }
-                saat = 0;
-                tarih=tarih.AddDays(1);
-                tarihGöstergesi.text = tarih.ToString("dd.MM.yyyy");
+                günDeğişti();
+                
             }
-            
         }
-        //string gösterilecekSaat = saat < 10 ? '0' + saat.ToString() + ':': saat.ToString() + ':';
-        //gösterilecekSaat += dakika < 10 ? '0' + dakika.ToString() : dakika.ToString();
         saatGöstergesi.text = saat.ToString("00")+':'+dakika.ToString("00");
         ışık.rotation = Quaternion.Euler(((60 * saat + dakika) * katFarkı), 0, 0);
     }

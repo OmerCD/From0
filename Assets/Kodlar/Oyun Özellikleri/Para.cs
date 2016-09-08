@@ -7,6 +7,8 @@ public class Para : MonoBehaviour
     public Dictionary<string, float> giderler, gelirler;
     void Awake()
     {
+        Zaman.haftaDeğişti += HaftaDeğişimi;
+        Zaman.günDeğişti += GünDeğişimi;
         giderler = new Dictionary<string, float>();
         gelirler = new Dictionary<string, float>();
     }
@@ -84,5 +86,13 @@ public class Para : MonoBehaviour
     void ParaGöster(float yeniPara, UnityEngine.UI.Text paraYazı)
     {
         paraYazı.text = yeniPara.ToString();
+    }
+    void HaftaDeğişimi() // Haftalık gelir - gider hesapları burada olacak
+    {
+        ParaBirim += ToplamGelir - ToplamGider;
+    }
+    void GünDeğişimi()// Günlük gelir - gider hesapları burada olacak
+    {
+
     }
 }

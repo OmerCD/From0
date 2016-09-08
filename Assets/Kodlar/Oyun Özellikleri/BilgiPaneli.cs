@@ -19,12 +19,12 @@ public class BilgiPaneli : MonoBehaviour {
         }
         if (birim is Bina)
         {
+            isimAlanı.text = birim.isim;
+            fiyatAlanı.text = ((Bina)birim).değer.ToString();
             if (birim is Ev)
             {
                 Ev gösterilecekEv = (Ev)birim;
-                isimAlanı.text = gösterilecekEv.isim;
                 durumAlanı.text = gösterilecekEv.durumAdları[(int)gösterilecekEv.evDurumu];
-                fiyatAlanı.text = gösterilecekEv.değer.ToString();
             }
         }
         Aktif=true;

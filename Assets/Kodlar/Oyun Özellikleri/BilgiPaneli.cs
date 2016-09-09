@@ -3,8 +3,12 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class BilgiPaneli : MonoBehaviour {
+    public delegate void Tıklama(string Komut);
+    public static Tıklama tıklandı;
     public delegate void Göster(bool aktif,HaritaBirimi birim);
     public static Göster gösterim;
+    public GameObject tuş;
+    public Transform tuşAlanı;
     public Text isimAlanı, durumAlanı, fiyatAlanı;
 	void Start () {
         gösterim = new Göster(BilgiPanelGöster);
@@ -24,7 +28,13 @@ public class BilgiPaneli : MonoBehaviour {
             if (birim is Ev)
             {
                 Ev gösterilecekEv = (Ev)birim;
-                durumAlanı.text = gösterilecekEv.durumAdları[(int)gösterilecekEv.evDurumu];
+                durumAlanı.text = gösterilecekEv.DurumAdları[(int)gösterilecekEv.evDurumu];
+                for (int i = 0; i < gösterilecekEv.Seçenekler.Length; i++)
+                {
+                    GameObject geç = Instantiate(tuş);
+                    geç.transform.SetParent(tuşAlanı);
+                    geç.GetComponentInChildren<Text>().text = gösterilecekEv.Seçenekler[i];
+                }
             }
         }
         Aktif=true;
@@ -34,6 +44,13 @@ public class BilgiPaneli : MonoBehaviour {
         set
         {
             gameObject.SetActive(value);
+            if (!value)
+            {
+                for (int i = 0; i < tuşAlanı.childCount; i++)
+                {
+                    Destroy(tuşAlanı.GetChild(i).gameObject);
+                }
+            }
         }
         get
         {

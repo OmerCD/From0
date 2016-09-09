@@ -15,6 +15,10 @@ public abstract class HaritaBirimi : MonoBehaviour
     {
         if (obje.tag == "Oyuncu")
         {
+            if (aktiviteTuşu==null)
+            {
+                aktiviteTuşu = GameObject.Find("E Tuşu").GetComponent<UnityEngine.UI.Image>();
+            }
             aktiviteTuşu.enabled = etkileşimAçık = true;
         }
     }

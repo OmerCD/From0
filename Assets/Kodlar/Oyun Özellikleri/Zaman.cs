@@ -47,7 +47,7 @@ public class Zaman : MonoBehaviour {
     }
 	// Update is called once per frame
 	void Update () {
-        dakika += Time.deltaTime*250;
+        dakika += Time.deltaTime;
         if (dakika>59)
         {
             dakika = 0;

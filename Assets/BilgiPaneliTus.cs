@@ -7,5 +7,7 @@ public class BilgiPaneliTus : MonoBehaviour {
     {
         string komut = GetComponentInChildren<UnityEngine.UI.Text>().text;
         BilgiPaneli.tıklandı(komut);
+        BilgiPaneli.gösterim(false, BilgiPaneli.referansBirimi);
+        BilgiPaneli.gösterim(true, BilgiPaneli.referansBirimi);
     }
 }

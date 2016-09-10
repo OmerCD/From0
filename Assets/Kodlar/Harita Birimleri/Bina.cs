@@ -20,8 +20,17 @@ public abstract class  Bina : HaritaBirimi {
             return durumAdları;
         }
     }
-    void SeçenekSeçildi(string verilenKomut)
+    void SeçenekSeçildi(string verilenKomut)// Verilen komutlar burada işlenecek
     {
-        Debug.Log(verilenKomut); // Verilen komutlar burada işlenecek
+        if (verilenKomut== "İşe Başvur")
+        {
+            IşYeri geç = (IşYeri)this;
+            geç.İşeBaşvur();
+        }
+        else if (verilenKomut=="Çalış")
+        {
+            IşYeri geç = (IşYeri)this;
+            geç.ÇalışmayaBaşla();
+        }
     }
 }

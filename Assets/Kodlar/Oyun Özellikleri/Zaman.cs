@@ -4,19 +4,19 @@ using System;
 
 public class Zaman : MonoBehaviour {
     public delegate void TarihDeğişimi();
-    public static TarihDeğişimi günDeğişti,haftaDeğişti;
+    public static TarihDeğişimi günDeğişti,haftaDeğişti,saatDeğişti;
     public Transform ışık;
     const float katFarkı = 0.125f;
-    float saat;
-    float dakika;
+    static float saat;
+    static float dakika;
     public UnityEngine.UI.Text saatGöstergesi,tarihGöstergesi;
     byte yediGünKontrol = 1;
     DateTime tarih;
-    public float Saat
+    public static float Saat
     {
         get { return saat; }
     }
-    public float Dakika
+    public static float Dakika
     {
         get { return dakika; }
     }
@@ -52,6 +52,7 @@ public class Zaman : MonoBehaviour {
         {
             dakika = 0;
             saat++;
+            saatDeğişti();
             if (saat>=24)
             {
                 günDeğişti();

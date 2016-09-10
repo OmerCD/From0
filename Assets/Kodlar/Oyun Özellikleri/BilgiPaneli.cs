@@ -10,12 +10,14 @@ public class BilgiPaneli : MonoBehaviour {
     public GameObject tuş;
     public Transform tuşAlanı;
     public Text isimAlanı, durumAlanı, fiyatAlanı;
+    public static HaritaBirimi referansBirimi;
 	void Start () {
         gösterim = new Göster(BilgiPanelGöster);
         Aktif = false;
 	}
     void BilgiPanelGöster(bool aktiflik,HaritaBirimi birim)
     {
+        referansBirimi = birim;
         if (!aktiflik)
         {
             Aktif = false;

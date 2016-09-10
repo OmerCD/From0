@@ -2,8 +2,8 @@
 using System.Collections;
 
 public abstract class Ev : Bina {
-    public Durum evDurumu;
-    string[] durumAdları = new string[] { "Kiracı", "Sahip", "Yok" };
+    private Durum evDurumu;
+
     public enum Durum
     {
         Kiracı,
@@ -12,13 +12,13 @@ public abstract class Ev : Bina {
     }
     public int metreKare;
     public float haftalıkÜcret,satınAlmaÜcreti;
-    void Start()
+    void DurumKontrol()
     {
-        if (evDurumu==Durum.Kiracı)
+        if (EvDurumu == Durum.Kiracı)
         {
             seçenekler = new string[] { "Kal", "Satın Al", "Evden Çık" };
         }
-        else if (evDurumu==Durum.Sahip)
+        else if (EvDurumu == Durum.Sahip)
         {
             seçenekler = new string[] { "Kal", "Kiraya Ver", "Sat" };
         }
@@ -27,12 +27,24 @@ public abstract class Ev : Bina {
             seçenekler = new string[] { "Kirala", "Satın Al" };
         }
     }
-    public string[] DurumAdları
+    void Start()
+    {
+        durumAdları = new string[] { "Kiracı", "Sahip", "Yok" };
+        DurumKontrol();
+    }
+
+
+    public Durum EvDurumu
     {
         get
         {
-            return durumAdları;
+            return evDurumu;
+        }
+
+        set
+        {
+            evDurumu = value;
+            DurumKontrol();
         }
     }
-
 }

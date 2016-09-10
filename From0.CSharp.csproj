@@ -74,8 +74,8 @@
     <Compile Include="Assets\Kodlar\Harita Birimleri\Bina.cs" />
     <Compile Include="Assets\Kodlar\Harita Birimleri\Ev.cs" />
     <Compile Include="Assets\Kodlar\Harita Birimleri\HaritaBirimi.cs" />
+    <Compile Include="Assets\Kodlar\Harita Birimleri\IşYeri.cs" />
     <Compile Include="Assets\Kodlar\Harita Birimleri\Müstakil.cs" />
-    <Compile Include="Assets\Kodlar\Harita Birimleri\İşYeri.cs" />
     <Compile Include="Assets\Kodlar\HaritaGösterimi.cs" />
     <Compile Include="Assets\Kodlar\HaritaKamerası.cs" />
     <Compile Include="Assets\Kodlar\KameraAyarları.cs" />

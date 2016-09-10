@@ -24,17 +24,22 @@ public class BilgiPaneli : MonoBehaviour {
         if (birim is Bina)
         {
             isimAlanı.text = birim.isim;
-            fiyatAlanı.text = ((Bina)birim).değer.ToString();
+            Bina geçBina = (Bina)birim;
+            fiyatAlanı.text = geçBina.değer.ToString();
+
+            for (int i = 0; i < geçBina.Seçenekler.Length; i++)
+            {
+                GameObject geç = Instantiate(tuş);
+                geç.transform.SetParent(tuşAlanı);
+                geç.GetComponentInChildren<Text>().text = geçBina.Seçenekler[i];
+            }
             if (birim is Ev)
             {
-                Ev gösterilecekEv = (Ev)birim;
-                durumAlanı.text = gösterilecekEv.DurumAdları[(int)gösterilecekEv.evDurumu];
-                for (int i = 0; i < gösterilecekEv.Seçenekler.Length; i++)
-                {
-                    GameObject geç = Instantiate(tuş);
-                    geç.transform.SetParent(tuşAlanı);
-                    geç.GetComponentInChildren<Text>().text = gösterilecekEv.Seçenekler[i];
-                }
+                durumAlanı.text = geçBina.DurumAdları[(int)((Ev)birim).EvDurumu];
+            }
+            else if (birim is IşYeri)
+            {
+                durumAlanı.text = geçBina.DurumAdları[(int)((IşYeri)birim).İşDurumu];
             }
         }
         Aktif=true;

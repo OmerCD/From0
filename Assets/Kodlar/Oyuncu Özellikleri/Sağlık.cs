@@ -10,12 +10,10 @@ public class Sağlık : EnerjiSistemi {
     {
         if (açlık.Değer < 15)
         {
-            Debug.Log("Açlık Az");
             Değer -= 3;
         }
         if (enerji.Değer < 15)
         {
-            Debug.Log("Enerji Az");
             Değer -= 3;
         }
     }

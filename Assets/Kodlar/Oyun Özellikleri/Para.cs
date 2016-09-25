@@ -3,7 +3,7 @@ using UnityEngine;
 public class Para : MonoBehaviour
 {
     private float para;
-    public UnityEngine.UI.Text paraGöstergesi,giderGöstergesi,gelirGöstergesi;
+    public UnityEngine.UI.Text paraGöstergesi;
     public Dictionary<string, float> giderler, gelirler;
     void Awake()
     {

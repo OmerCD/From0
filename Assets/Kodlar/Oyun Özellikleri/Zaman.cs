@@ -12,6 +12,8 @@ public class Zaman : MonoBehaviour {
     public UnityEngine.UI.Text saatGöstergesi,tarihGöstergesi;
     byte yediGünKontrol = 1;
     DateTime tarih;
+    [SerializeField]
+    float zamanHızKatSayısı;
     public static float Saat
     {
         get { return saat; }
@@ -47,7 +49,7 @@ public class Zaman : MonoBehaviour {
     }
 	// Update is called once per frame
 	void Update () {
-        dakika += Time.deltaTime*50;
+        dakika += Time.deltaTime* zamanHızKatSayısı;
         if (dakika>59)
         {
             dakika = 0;

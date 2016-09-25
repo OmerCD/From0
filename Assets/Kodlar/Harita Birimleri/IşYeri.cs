@@ -51,6 +51,10 @@ public class IşYeri : Bina {
             Zaman.saatDeğişti += SaatKontrol;
             işeGeldi = true;
         }
+        else
+        {
+            
+        }
     }
     public void ÇalışmayıBitir() // Otomatik olarak saati geldiğinde çalışma bitecek
     {

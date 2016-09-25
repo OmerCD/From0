@@ -11,6 +11,7 @@ public class BilgiPaneli : MonoBehaviour {
     public Transform tuşAlanı;
     public Text isimAlanı, durumAlanı, fiyatAlanı;
     public static HaritaBirimi referansBirimi;
+
 	void Start () {
         gösterim = new Göster(BilgiPanelGöster);
         Aktif = false;

@@ -69,7 +69,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\BilgiPaneliTus.cs" />
+    <Compile Include="Assets\Kodlar\BilgiPaneliTus.cs" />
     <Compile Include="Assets\Kodlar\Harita Birimleri\Apartman.cs" />
     <Compile Include="Assets\Kodlar\Harita Birimleri\Bina.cs" />
     <Compile Include="Assets\Kodlar\Harita Birimleri\Ev.cs" />
@@ -83,6 +83,10 @@
     <Compile Include="Assets\Kodlar\Oyun Özellikleri\HaritaİmleçKontrolcüsü.cs" />
     <Compile Include="Assets\Kodlar\Oyun Özellikleri\Para.cs" />
     <Compile Include="Assets\Kodlar\Oyun Özellikleri\Zaman.cs" />
+    <Compile Include="Assets\Kodlar\Oyuncu Özellikleri\Açlık.cs" />
+    <Compile Include="Assets\Kodlar\Oyuncu Özellikleri\Enerji.cs" />
+    <Compile Include="Assets\Kodlar\Oyuncu Özellikleri\EnerjiSistemi.cs" />
+    <Compile Include="Assets\Kodlar\Oyuncu Özellikleri\Sağlık.cs" />
     <Compile Include="Assets\Kodlar\Oyuncu Özellikleri\YetenekYönetim.cs" />
     <Compile Include="Assets\Kodlar\YolBulma\Alan.cs" />
     <Compile Include="Assets\Kodlar\YolBulma\Nokta.cs" />

@@ -156,7 +156,7 @@ public class YetenekYönetim : MonoBehaviour
         for (int i = 0; i < oyuncuYetenekleri.Adet; i++)
         {
             GameObject geç = Instantiate(yetenekObjesi);
-            geç.transform.parent = yetenekEklenecekAlan;
+            geç.transform.SetParent( yetenekEklenecekAlan);
             geç.GetComponentInChildren<UnityEngine.UI.Text>().text = oyuncuYetenekleri[i].YetenekAdı + " - " + ((int)oyuncuYetenekleri[i].YetenekSeviyesi).ToString();
         }
     }

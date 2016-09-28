@@ -53,7 +53,7 @@ public class IşYeri : Bina {
         }
         else
         {
-            
+            UyarıMesaj.mesajGD("Çalışma saatlerinde gelin\n"+işSaatiBaşlangıç+" - "+işSaatiBitiş, 5);
         }
     }
     public void ÇalışmayıBitir() // Otomatik olarak saati geldiğinde çalışma bitecek

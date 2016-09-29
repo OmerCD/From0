@@ -139,7 +139,30 @@ public class Envanter : MonoBehaviour
     }
     string TTOluştur(Eşya eşya)
     {
-        string tYazı = "<color=#b8c7ff>" + eşya.Isim + "</color>\n\n" + "<color=#e3cele>" + eşya.Açıklama + "</color>";
+        string tYazı = "<color=#b8c7ff>" + eşya.Isim + "</color>\n\n" + "<color=#e3cele>" + eşya.Açıklama + "</color>\n\n<color=#b8c7ff>Değer : </color><color=#5EFF5E>" + eşya.Değer+"</color>";
+        if (eşya.EtkiGücü>0)
+        {
+            tYazı += "\n\n<color=#FFF34D>";
+            switch (eşya.EtkiliAlan)
+            {
+                case Eşya.EtkiAlanı.Açlık:
+                    {
+                        tYazı += "Yemek +";
+                        break;
+                    }
+                case Eşya.EtkiAlanı.Enerji:
+                    {
+                        tYazı += "Enerji +";
+                        break;
+                    }
+                case Eşya.EtkiAlanı.Sağlık:
+                    {
+                        tYazı += "Sağlık +";
+                        break;
+                    }
+            }
+            tYazı += eşya.EtkiGücü + "</color>";
+        }
         return tYazı;
     }
     Eşya EşyaAl(int eşyaSırası)

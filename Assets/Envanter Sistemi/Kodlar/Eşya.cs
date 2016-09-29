@@ -17,6 +17,8 @@ public class Eşya:ScriptableObject {
     int etkiGücü;
     [SerializeField]
     EtkiAlanı etkiliAlan;
+    [SerializeField]
+    float değer;
 
     public string Isim
     {
@@ -106,6 +108,19 @@ public class Eşya:ScriptableObject {
         set
         {
             etkiliAlan = value;
+        }
+    }
+
+    public float Değer
+    {
+        get
+        {
+            return değer;
+        }
+
+        set
+        {
+            değer = value;
         }
     }
 

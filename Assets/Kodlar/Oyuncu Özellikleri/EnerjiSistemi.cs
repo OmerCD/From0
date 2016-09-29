@@ -30,8 +30,8 @@ public abstract class EnerjiSistemi : MonoBehaviour{
     }
     public void DeğerEkle(float değer)
     {
-        anlıkDeğer += değer;
-        anlıkDeğer = anlıkDeğer > maksimumDeğer ? maksimumDeğer : anlıkDeğer;
+        Değer += değer;
+        Değer = anlıkDeğer > maksimumDeğer ? maksimumDeğer : anlıkDeğer;
     }
     public abstract void DeğerAzalması();
     public abstract string DeğerSıfırlandı();

@@ -105,6 +105,7 @@ public class EşyaDüzenleyici : EditorWindow {
                 eşya.Tür = (Eşya.EşyaTürü)EditorGUILayout.EnumPopup("Eşya Türü", eşya.Tür);
                 eşya.EtkiliAlan = (Eşya.EtkiAlanı)EditorGUILayout.EnumPopup("Etki Alanı", eşya.EtkiliAlan);
                 eşya.EtkiGücü = EditorGUILayout.IntField("Eşya Etki Gücü", eşya.EtkiGücü);
+                eşya.Değer = EditorGUILayout.FloatField("Eşya Değeri", eşya.Değer);
                 //eşya.itemObject = EditorGUILayout.ObjectField("Item Object", eşya.itemObject, typeof(Rigidbody), false) as Rigidbody;
 
                 GUILayout.Space(10);

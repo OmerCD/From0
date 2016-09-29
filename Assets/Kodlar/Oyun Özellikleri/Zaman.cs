@@ -12,8 +12,7 @@ public class Zaman : MonoBehaviour {
     public UnityEngine.UI.Text saatGöstergesi,tarihGöstergesi;
     byte yediGünKontrol = 1;
     DateTime tarih;
-    [SerializeField]
-    float zamanHızKatSayısı;
+    public static float zamanHızKatSayısı=1;
     public static float Saat
     {
         get { return saat; }

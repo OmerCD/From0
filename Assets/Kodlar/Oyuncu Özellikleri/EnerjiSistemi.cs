@@ -3,7 +3,7 @@ using System.Collections;
 using System;
 
 public abstract class EnerjiSistemi : MonoBehaviour{
-    protected float maksismumDeğer;
+    protected float maksimumDeğer;
     protected float anlıkDeğer;
     public RectTransform enerjiBarı;
     public float Değer
@@ -24,14 +24,14 @@ public abstract class EnerjiSistemi : MonoBehaviour{
     }
     protected virtual void Start()
     {
-        maksismumDeğer = 100;
-        anlıkDeğer = maksismumDeğer;
+        maksimumDeğer = 100;
+        anlıkDeğer = maksimumDeğer;
         Zaman.saatDeğişti += DeğerAzalması;
     }
     public void DeğerEkle(float değer)
     {
         anlıkDeğer += değer;
-        anlıkDeğer = anlıkDeğer > maksismumDeğer ? maksismumDeğer : anlıkDeğer;
+        anlıkDeğer = anlıkDeğer > maksimumDeğer ? maksimumDeğer : anlıkDeğer;
     }
     public abstract void DeğerAzalması();
     public abstract string DeğerSıfırlandı();

@@ -75,6 +75,7 @@
     <Compile Include="Assets\Envanter Sistemi\Kodlar\Eşya.cs" />
     <Compile Include="Assets\Envanter Sistemi\Kodlar\EşyaDüzenleyici.cs" />
     <Compile Include="Assets\Envanter Sistemi\Kodlar\EşyaOluştur.cs" />
+    <Compile Include="Assets\Envanter Sistemi\Kodlar\Eşyalar.cs" />
     <Compile Include="Assets\Kodlar\Arayüz\BilgiPaneliTus.cs" />
     <Compile Include="Assets\Kodlar\Arayüz\HaritaGösterimi.cs" />
     <Compile Include="Assets\Kodlar\Arayüz\HaritaKamerası.cs" />

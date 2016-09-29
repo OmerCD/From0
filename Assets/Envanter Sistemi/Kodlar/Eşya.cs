@@ -15,6 +15,8 @@ public class Eşya:ScriptableObject {
     EşyaTürü tür;
     [SerializeField]
     int etkiGücü;
+    [SerializeField]
+    EtkiAlanı etkiliAlan;
 
     public string Isim
     {
@@ -94,6 +96,19 @@ public class Eşya:ScriptableObject {
         }
     }
 
+    public EtkiAlanı EtkiliAlan
+    {
+        get
+        {
+            return etkiliAlan;
+        }
+
+        set
+        {
+            etkiliAlan = value;
+        }
+    }
+
     public Eşya(string isim, int iD, string açıklama, Texture2D ikon, EşyaTürü tür, int etkiGücü)
     {
         this.isim = isim;
@@ -112,5 +127,12 @@ public class Eşya:ScriptableObject {
     {
         Kıyafet,
         Tüketilebilir
+    }
+    public enum EtkiAlanı
+    {
+        Yok,
+        Sağlık,
+        Enerji,
+        Açlık
     }
 }

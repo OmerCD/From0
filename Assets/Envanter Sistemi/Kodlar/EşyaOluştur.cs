@@ -7,6 +7,7 @@ public class EşyaOluştur  {
     public static Eşya Oluştur(string eşyaID)
     {
         Eşya asset = ScriptableObject.CreateInstance<Eşya>();
+        asset.ID = int.Parse(eşyaID);
         AssetDatabase.CreateAsset(asset, "Assets/Envanter Sistemi/SO Eşyalar/"+eşyaID+".asset");
         AssetDatabase.SaveAssets();
         return asset;

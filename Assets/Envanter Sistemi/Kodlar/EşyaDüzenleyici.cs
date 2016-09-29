@@ -103,6 +103,7 @@ public class EşyaDüzenleyici : EditorWindow {
                 eşya.Ikon = EditorGUILayout.ObjectField("Eşya İkonu", eşya.Ikon, typeof(Texture2D), false) as Texture2D;
                 eşya.ID = EditorGUILayout.IntField("Eşya ID", eşya.ID);
                 eşya.Tür = (Eşya.EşyaTürü)EditorGUILayout.EnumPopup("Eşya Türü", eşya.Tür);
+                eşya.EtkiliAlan = (Eşya.EtkiAlanı)EditorGUILayout.EnumPopup("Etki Alanı", eşya.EtkiliAlan);
                 eşya.EtkiGücü = EditorGUILayout.IntField("Eşya Etki Gücü", eşya.EtkiGücü);
                 //eşya.itemObject = EditorGUILayout.ObjectField("Item Object", eşya.itemObject, typeof(Rigidbody), false) as Rigidbody;
 

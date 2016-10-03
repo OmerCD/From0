@@ -4,6 +4,8 @@ using System;
 
 public class Zaman : MonoBehaviour {
     public delegate void TarihDeğişimi();
+    public delegate void ZamanAkışDeğişimi();
+    public static ZamanAkışDeğişimi zamanDurdu, zamanHızlandı, zamanNormal;
     public static TarihDeğişimi günDeğişti,haftaDeğişti,saatDeğişti;
     public Transform ışık;
     const float katFarkı = 0.125f;

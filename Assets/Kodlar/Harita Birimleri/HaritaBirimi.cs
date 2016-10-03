@@ -38,7 +38,6 @@ public abstract class HaritaBirimi : MonoBehaviour
             {
                 BilgiPaneli.gösterim(true,this);
                 aktiviteTuşu.enabled = etkileşimAçık = false;
-                Debug.Log("Oldu");
             }
         }
     }

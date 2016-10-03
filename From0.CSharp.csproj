@@ -76,6 +76,8 @@
     <Compile Include="Assets\Kodlar\Arayüz\BilgiPaneliTus.cs" />
     <Compile Include="Assets\Kodlar\Arayüz\HaritaGösterimi.cs" />
     <Compile Include="Assets\Kodlar\Arayüz\HaritaKamerası.cs" />
+    <Compile Include="Assets\Kodlar\Diyalog Sistemi\Diyalog.cs" />
+    <Compile Include="Assets\Kodlar\Diyalog Sistemi\Konuşma.cs" />
     <Compile Include="Assets\Kodlar\Harita Birimleri\Apartman.cs" />
     <Compile Include="Assets\Kodlar\Harita Birimleri\Bina.cs" />
     <Compile Include="Assets\Kodlar\Harita Birimleri\Ev.cs" />
@@ -85,6 +87,7 @@
     <Compile Include="Assets\Kodlar\Harita Birimleri\UyarıMesaj.cs" />
     <Compile Include="Assets\Kodlar\Oyun Özellikleri\BilgiPaneli.cs" />
     <Compile Include="Assets\Kodlar\Oyun Özellikleri\HaritaİmleçKontrolcüsü.cs" />
+    <Compile Include="Assets\Kodlar\Oyun Özellikleri\OyunHızAyarları.cs" />
     <Compile Include="Assets\Kodlar\Oyun Özellikleri\Para.cs" />
     <Compile Include="Assets\Kodlar\Oyun Özellikleri\Zaman.cs" />
     <Compile Include="Assets\Kodlar\Oyuncu Özellikleri\Açlık.cs" />
@@ -100,6 +103,7 @@
     <Compile Include="Assets\Kodlar\YolBulma\YolİstekYöneticisi.cs" />
     <Compile Include="Assets\Kodlar\YolBulma\Yığınlama Sıralaması.cs" />
     <Compile Include="Assets\Kodlar\Şehir Oluşturma 2\ŞehirOluştur.cs" />
+    <Compile Include="Assets\OyuncuKontrolAktiflikYönetimi.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Rune Assets\Simple\Urban Buildings Pack 1\runesimple.shader" />

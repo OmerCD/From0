@@ -77,6 +77,9 @@
     <Compile Include="Assets\Kodlar\Arayüz\HaritaGösterimi.cs" />
     <Compile Include="Assets\Kodlar\Arayüz\HaritaKamerası.cs" />
     <Compile Include="Assets\Kodlar\Diyalog Sistemi\Diyalog.cs" />
+    <Compile Include="Assets\Kodlar\Diyalog Sistemi\DiyalogVeriTabanı.cs" />
+    <Compile Include="Assets\Kodlar\Diyalog Sistemi\DiyalogVeriTabanıOluştur.cs" />
+    <Compile Include="Assets\Kodlar\Diyalog Sistemi\DiyalogYöneticisi.cs" />
     <Compile Include="Assets\Kodlar\Diyalog Sistemi\Konuşma.cs" />
     <Compile Include="Assets\Kodlar\Harita Birimleri\Apartman.cs" />
     <Compile Include="Assets\Kodlar\Harita Birimleri\Bina.cs" />

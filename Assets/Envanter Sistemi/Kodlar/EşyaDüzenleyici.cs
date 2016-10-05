@@ -94,7 +94,6 @@ public class EşyaDüzenleyici : EditorWindow {
             {
                 GUILayout.BeginHorizontal();
                 bakılanİndex = Mathf.Clamp(EditorGUILayout.IntField("Şu anki Eşya", bakılanİndex, GUILayout.ExpandWidth(false)), 1, eşyaSayısı);
-                //Mathf.Clamp (bakılanİndex, 1, eşya.Eşyalar.Count);
                 EditorGUILayout.LabelField("--   " + eşyaSayısı + "  eşya", "", GUILayout.ExpandWidth(false));
                 GUILayout.EndHorizontal();
 
@@ -106,25 +105,8 @@ public class EşyaDüzenleyici : EditorWindow {
                 eşya.EtkiliAlan = (Eşya.EtkiAlanı)EditorGUILayout.EnumPopup("Etki Alanı", eşya.EtkiliAlan);
                 eşya.EtkiGücü = EditorGUILayout.IntField("Eşya Etki Gücü", eşya.EtkiGücü);
                 eşya.Değer = EditorGUILayout.FloatField("Eşya Değeri", eşya.Değer);
-                //eşya.itemObject = EditorGUILayout.ObjectField("Item Object", eşya.itemObject, typeof(Rigidbody), false) as Rigidbody;
 
                 GUILayout.Space(10);
-
-                //GUILayout.BeginHorizontal();
-                //eşya.isUnique = (bool)EditorGUILayout.Toggle("Unique", eşya.isUnique, GUILayout.ExpandWidth(false));
-                //eşya.isIndestructible = (bool)EditorGUILayout.Toggle("Indestructable", eşya.isIndestructible, GUILayout.ExpandWidth(false));
-                //eşya.isQuestItem = (bool)EditorGUILayout.Toggle("QuestItem", eşya.isQuestItem, GUILayout.ExpandWidth(false));
-                //GUILayout.EndHorizontal();
-
-                //GUILayout.Space(10);
-
-                //GUILayout.BeginHorizontal();
-                //eşya.isStackable = (bool)EditorGUILayout.Toggle("Stackable ", eşya.isStackable, GUILayout.ExpandWidth(false));
-                //eşya.destroyOnUse = (bool)EditorGUILayout.Toggle("Destroy On Use", eşya.destroyOnUse, GUILayout.ExpandWidth(false));
-                //eşya.encumbranceValue = EditorGUILayout.FloatField("Encumberance", eşya.encumbranceValue, GUILayout.ExpandWidth(false));
-                //GUILayout.EndHorizontal();
-
-                //GUILayout.Space(10);
 
             }
             else

@@ -31,7 +31,7 @@ public class Zaman : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         günDeğişti = new TarihDeğişimi(GünDeğişimi);
-        saat = 0;
+        saat = 6;
         dakika = 0;
         tarih = DateTime.Parse("01.01.2015");
         tarihGöstergesi.text = "01.01.2015";

@@ -2,46 +2,75 @@
 using System.Collections;
 using UnityEngine.UI;
 public class OyunHızAyarları : MonoBehaviour {
+    public delegate void HızDeğişimi(bool değişimeİzinVer);
+    public static HızDeğişimi oyunHızlandır, oyunNormalleştir, oyunDurdur;
     [SerializeField]
     Button durdur, normal, hızlandır;
     void Start()
     {
         normal.interactable = false;
+        oyunDurdur = ZamanDurdur;
+        oyunHızlandır = ZamanHızlandır;
+        oyunNormalleştir = ZamanNormal;
     }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.BackQuote)||Input.GetKeyDown(KeyCode.Alpha0) ||Input.GetKeyDown(KeyCode.Keypad0))
         {
-            ZamanDurdur();
+            ZamanDurdur(true);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))
         {
-            ZamanNormal();
+            ZamanNormal(true);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))
         {
-            ZamanHızlandır();
+            ZamanHızlandır(true);
         }
     }
-	public void ZamanDurdur()
+    void TuşlarıDeaktiveEt()
+    {
+        durdur.interactable = normal.interactable = hızlandır.interactable = false;
+    }
+	public void ZamanDurdur(bool değişim)
     {
         Zaman.zamanHızKatSayısı = 0;
         Zaman.zamanDurdu();
-        durdur.interactable = false;
-        normal.interactable = hızlandır.interactable = true;
+        if (değişim)
+        {
+            durdur.interactable = false;
+            normal.interactable = hızlandır.interactable = true;
+        }
+        else
+        {
+            TuşlarıDeaktiveEt();
+        }
     }
-    public void ZamanNormal()
+    public void ZamanNormal(bool değişim)
     {
         Zaman.zamanHızKatSayısı = 1;
         Zaman.zamanNormal();
-        normal.interactable = false;
-        durdur.interactable = hızlandır.interactable = true;
+        if(değişim){
+            normal.interactable = false;
+            durdur.interactable = hızlandır.interactable = true;
+        }
+        else
+        {
+            TuşlarıDeaktiveEt();
+        }
     }
-    public void ZamanHızlandır()
+    public void ZamanHızlandır(bool değişim)
     {
         Zaman.zamanHızKatSayısı = 100;
         Zaman.zamanHızlandı();
-        hızlandır.interactable = false;
-        normal.interactable = durdur.interactable = true;
+        if (değişim)
+        {
+            hızlandır.interactable = false;
+            normal.interactable = durdur.interactable = true;
+        }
+        else
+        {
+            TuşlarıDeaktiveEt();
+        }
     }
 }

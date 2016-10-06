@@ -11,41 +11,63 @@ public class BilgiPaneli : MonoBehaviour {
     public Transform tuşAlanı;
     public Text isimAlanı, durumAlanı, fiyatAlanı;
     public static HaritaBirimi referansBirimi;
+    bool tuşGöster;
+    GameObject geçTuş;
 
-	void Start () {
+
+    void Start () {
         gösterim = new Göster(BilgiPanelGöster);
         Aktif = false;
+        tuşGöster = true;
+        Zaman.zamanHızlandı += ZamanDeğişti;
+        Zaman.zamanDurdu += ZamanDeğişti;
+        Zaman.zamanNormal += ZamanNormal;
 	}
+    void ZamanDeğişti()
+    {
+        Aktif = false;
+        tuşGöster = false;
+        Destroy(geçTuş);
+    }
+    void ZamanNormal()
+    {
+        tuşGöster = true;
+    }
     void BilgiPanelGöster(bool aktiflik,HaritaBirimi birim)
     {
-        referansBirimi = birim;
-        if (!aktiflik)
+        if (tuşGöster)
         {
-            Aktif = false;
-            return;
-        }
-        if (birim is Bina)
-        {
-            isimAlanı.text = birim.isim;
-            Bina geçBina = (Bina)birim;
-            fiyatAlanı.text = geçBina.değer.ToString();
+            referansBirimi = birim;
+            if (!aktiflik)
+            {
+                Aktif = false;
+                return;
+            }
 
-            for (int i = 0; i < geçBina.Seçenekler.Length; i++)
+            if (birim is Bina)
             {
-                GameObject geç = Instantiate(tuş);
-                geç.transform.SetParent(tuşAlanı);
-                geç.GetComponentInChildren<Text>().text = geçBina.Seçenekler[i];
+                isimAlanı.text = birim.isim;
+                Bina geçBina = (Bina)birim;
+                fiyatAlanı.text = geçBina.değer.ToString();
+
+                for (int i = 0; i < geçBina.Seçenekler.Length; i++)
+                {
+                    geçTuş = Instantiate(tuş);
+                    geçTuş.transform.SetParent(tuşAlanı);
+                    geçTuş.GetComponentInChildren<Text>().text = geçBina.Seçenekler[i];
+                }
+                if (birim is Ev)
+                {
+                    durumAlanı.text = geçBina.DurumAdları[(int)((Ev)birim).EvDurumu];
+                }
+                else if (birim is IşYeri)
+                {
+                    durumAlanı.text = geçBina.DurumAdları[(int)((IşYeri)birim).İşDurumu];
+                }
             }
-            if (birim is Ev)
-            {
-                durumAlanı.text = geçBina.DurumAdları[(int)((Ev)birim).EvDurumu];
-            }
-            else if (birim is IşYeri)
-            {
-                durumAlanı.text = geçBina.DurumAdları[(int)((IşYeri)birim).İşDurumu];
-            }
+
+            Aktif = true;
         }
-        Aktif=true;
     }
    public bool Aktif
     {

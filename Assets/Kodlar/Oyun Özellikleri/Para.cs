@@ -2,8 +2,11 @@
 using UnityEngine;
 public class Para : MonoBehaviour
 {
-    private float para;
-    public UnityEngine.UI.Text paraGöstergesi;
+    private static float para;
+    delegate void ParaDeğişimi();
+    static ParaDeğişimi paraDeğişti;
+    [SerializeField]
+    UnityEngine.UI.Text paraGöstergesi;
     public Dictionary<string, float> giderler, gelirler;
     void Awake()
     {
@@ -11,6 +14,7 @@ public class Para : MonoBehaviour
         Zaman.günDeğişti += GünDeğişimi;
         giderler = new Dictionary<string, float>();
         gelirler = new Dictionary<string, float>();
+        paraDeğişti = ParaGöster;
     }
     #region Gelir - Gider Hesapları
     public void GiderEkle(string giderAdı,float ücret)
@@ -70,7 +74,7 @@ public class Para : MonoBehaviour
         }
     }
     #endregion
-    public float ParaBirim
+    public static float ParaBirim
     {
         get
         {
@@ -80,12 +84,12 @@ public class Para : MonoBehaviour
         set
         {
             para = value;
-            ParaGöster(para,paraGöstergesi);
+            paraDeğişti();
         }
     }
-    void ParaGöster(float yeniPara, UnityEngine.UI.Text paraYazı)
+    void ParaGöster()
     {
-        paraYazı.text = yeniPara.ToString();
+        paraGöstergesi.text = para.ToString();
     }
     void HaftaDeğişimi() // Haftalık gelir - gider hesapları burada olacak
     {

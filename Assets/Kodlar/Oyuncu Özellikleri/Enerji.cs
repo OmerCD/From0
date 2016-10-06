@@ -6,7 +6,7 @@ public class Enerji : EnerjiSistemi
 {
     public override void DeğerAzalması()
     {
-        Değer -= 6;
+        Değer -= 5;
     }
 
     public override string DeğerSıfırlandı()

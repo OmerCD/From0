@@ -64,7 +64,7 @@ public class Envanter : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             envanterGöster = !envanterGöster;
         }
@@ -77,7 +77,7 @@ public class Envanter : MonoBehaviour
         {
             for (int x = 0; x < yuvaX; x++)
             {
-                Rect yuvaDörtgen = new Rect(x * 60+15, y * 60+150, 50, 50);
+                Rect yuvaDörtgen = new Rect(x * 60+15, y * 60+150, 60, 60);
                 GUI.Box(yuvaDörtgen, "", yüzey.GetStyle("Yuva_Arkaplan"));
                 yuvalar[i] = eşyalar[i];
                 Eşya eşya = yuvalar[i];

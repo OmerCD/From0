@@ -86,6 +86,7 @@
     <Compile Include="Assets\Kodlar\Harita Birimleri\Ev.cs" />
     <Compile Include="Assets\Kodlar\Harita Birimleri\HaritaBirimi.cs" />
     <Compile Include="Assets\Kodlar\Harita Birimleri\IşYeri.cs" />
+    <Compile Include="Assets\Kodlar\Harita Birimleri\Market.cs" />
     <Compile Include="Assets\Kodlar\Harita Birimleri\Müstakil.cs" />
     <Compile Include="Assets\Kodlar\Harita Birimleri\UyarıMesaj.cs" />
     <Compile Include="Assets\Kodlar\Oyun Özellikleri\BilgiPaneli.cs" />

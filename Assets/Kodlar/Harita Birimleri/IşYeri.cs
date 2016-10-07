@@ -8,8 +8,6 @@ public class IşYeri : Bina
     public bool işeGeldi = false;
     int çalışılanSaat;
     float günlükMaaş;
-    [SerializeField]
-    Para para;
     public enum İşDurum
     {
         Calışıyor,
@@ -32,7 +30,7 @@ public class IşYeri : Bina
             İşDurumKontrol();
         }
     }
-    void İşDurumKontrol()
+    protected virtual void İşDurumKontrol()
     {
         if (İşDurumu == İşDurum.Calışıyor)
         {

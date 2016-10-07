@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 public class Para : MonoBehaviour
 {
@@ -7,9 +8,13 @@ public class Para : MonoBehaviour
     static ParaDeğişimi paraDeğişti;
     [SerializeField]
     UnityEngine.UI.Text paraGöstergesi;
+    [SerializeField]
+    GameObject gelirGiderTablosu;
+    bool tabloGöster;
     public Dictionary<string, float> giderler, gelirler;
     void Awake()
     {
+        tabloGöster = false;
         Zaman.haftaDeğişti += HaftaDeğişimi;
         Zaman.günDeğişti += GünDeğişimi;
         giderler = new Dictionary<string, float>();
@@ -87,6 +92,42 @@ public class Para : MonoBehaviour
             paraDeğişti();
         }
     }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            tabloGöster = !tabloGöster;
+            GelirGiderTabloGöster(tabloGöster);
+        }
+    }
+
+    private void GelirGiderTabloGöster(bool gösterim)
+    {
+        gelirGiderTablosu.SetActive(gösterim);
+        if (!gösterim) return;
+        string gösterilecekYazı = "<color=#FA6669>\nGiderler</color>\n\n";
+        List<string> giderListesi = new List<string>(giderler.Keys);
+        List<string> gelirListesi = new List<string>(gelirler.Keys);
+        float netPara = 0;
+        for (int i = 0; i < giderler.Count; i++)
+        {
+            float geçPara = giderler[giderListesi[i]];
+            netPara -= geçPara;
+            gösterilecekYazı += giderListesi[i] + " : -" + geçPara+"\n";
+        }
+        gösterilecekYazı += "\n\n<color=#5EFF5E>Gelirler</color>\n\n";
+        for (int i = 0; i < gelirler.Count; i++)
+        {
+            float geçPara = gelirler[gelirListesi[i]];
+            netPara += geçPara;
+            gösterilecekYazı += gelirListesi[i] + " : +" + geçPara + "\n";
+        }
+        gösterilecekYazı += "\n<color=#F3FF0A>Net</color> : ";
+        if (netPara > 0) gösterilecekYazı += '+';
+        gösterilecekYazı += netPara;
+        gelirGiderTablosu.GetComponentInChildren<UnityEngine.UI.Text>().text = gösterilecekYazı;
+    }
+
     void ParaGöster()
     {
         paraGöstergesi.text = para.ToString();

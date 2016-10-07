@@ -6,8 +6,10 @@ public class OyunHızAyarları : MonoBehaviour {
     public static HızDeğişimi oyunHızlandır, oyunNormalleştir, oyunDurdur;
     [SerializeField]
     Button durdur, normal, hızlandır;
+    bool tuşAktifliği;
     void Start()
     {
+        tuşAktifliği = true;
         normal.interactable = false;
         oyunDurdur = ZamanDurdur;
         oyunHızlandır = ZamanHızlandır;
@@ -15,22 +17,25 @@ public class OyunHızAyarları : MonoBehaviour {
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.BackQuote)||Input.GetKeyDown(KeyCode.Alpha0) ||Input.GetKeyDown(KeyCode.Keypad0))
+        if (tuşAktifliği)
         {
-            ZamanDurdur(true);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))
-        {
-            ZamanNormal(true);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))
-        {
-            ZamanHızlandır(true);
+            if (Input.GetKeyDown(KeyCode.BackQuote) || Input.GetKeyDown(KeyCode.Alpha0) || Input.GetKeyDown(KeyCode.Keypad0))
+            {
+                ZamanDurdur(true);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))
+            {
+                ZamanNormal(true);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))
+            {
+                ZamanHızlandır(true);
+            }
         }
     }
     void TuşlarıDeaktiveEt()
     {
-        durdur.interactable = normal.interactable = hızlandır.interactable = false;
+        durdur.interactable = normal.interactable = hızlandır.interactable =tuşAktifliği= false;
     }
 	public void ZamanDurdur(bool değişim)
     {
@@ -40,6 +45,7 @@ public class OyunHızAyarları : MonoBehaviour {
         {
             durdur.interactable = false;
             normal.interactable = hızlandır.interactable = true;
+            tuşAktifliği = true;
         }
         else
         {
@@ -53,6 +59,7 @@ public class OyunHızAyarları : MonoBehaviour {
         if(değişim){
             normal.interactable = false;
             durdur.interactable = hızlandır.interactable = true;
+            tuşAktifliği = true;
         }
         else
         {
@@ -67,6 +74,7 @@ public class OyunHızAyarları : MonoBehaviour {
         {
             hızlandır.interactable = false;
             normal.interactable = durdur.interactable = true;
+            tuşAktifliği = true;
         }
         else
         {

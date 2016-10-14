@@ -82,6 +82,7 @@
     <Compile Include="Assets\Kodlar\Diyalog Sistemi\DiyalogYöneticisi.cs" />
     <Compile Include="Assets\Kodlar\Diyalog Sistemi\Konuşma.cs" />
     <Compile Include="Assets\Kodlar\Harita Birimleri\Apartman.cs" />
+    <Compile Include="Assets\Kodlar\Harita Birimleri\Banka.cs" />
     <Compile Include="Assets\Kodlar\Harita Birimleri\Bina.cs" />
     <Compile Include="Assets\Kodlar\Harita Birimleri\Ev.cs" />
     <Compile Include="Assets\Kodlar\Harita Birimleri\HaritaBirimi.cs" />

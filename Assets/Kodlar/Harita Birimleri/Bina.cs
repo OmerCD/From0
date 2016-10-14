@@ -2,7 +2,7 @@
 using System.Collections;
 
 public abstract class  Bina : HaritaBirimi {
-    public float değer;
+    public uint değer;
     protected string[] seçenekler;
     protected string[] durumAdları;
     public string[] Seçenekler
@@ -20,17 +20,5 @@ public abstract class  Bina : HaritaBirimi {
             return durumAdları;
         }
     }
-    void SeçenekSeçildi(string verilenKomut)// Verilen komutlar burada işlenecek
-    {
-        if (verilenKomut== "İşe Başvur")
-        {
-            IşYeri geç = (IşYeri)this;
-            geç.İşeBaşvur();
-        }
-        else if (verilenKomut=="Çalış")
-        {
-            IşYeri geç = (IşYeri)this;
-            geç.ÇalışmayaBaşla();
-        }
-    }
+    abstract protected void SeçenekSeçildi(string verilenKomut);// Verilen komutlar burada işlenecek
 }

@@ -7,5 +7,9 @@ namespace Assets.Kodlar.Harita_Birimleri
 {
     public class Müstakil : Ev
     {
+        protected override void SeçenekSeçildi(string verilenKomut)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

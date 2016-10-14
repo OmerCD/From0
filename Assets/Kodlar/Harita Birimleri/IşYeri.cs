@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class IşYeri : Bina
 {
     public float işSaatiBaşlangıç, işSaatiBitiş;
     public float işYeriİlişkisi = 50f;
+    [SerializeField]
+    float saatBaşıMaaş=15;
     public bool işeGeldi = false;
     int çalışılanSaat;
     float günlükMaaş;
@@ -61,7 +64,7 @@ public class IşYeri : Bina
     public void ÇalışmayıBitir() // Otomatik olarak saati geldiğinde çalışma bitecek
     {
         işeGeldi = false;
-        günlükMaaş = çalışılanSaat * 15;
+        günlükMaaş = çalışılanSaat * saatBaşıMaaş;
         Para.ParaBirim += günlükMaaş;
         // Çalışılan saate göre maaş hesaplanacak
         çalışılanSaat = 0;
@@ -95,6 +98,34 @@ public class IşYeri : Bina
             if (Zaman.Saat > işSaatiBitiş - 1 && işeGeldi)
             {
                 ÇalışmayıBitir();
+            }
+        }
+    }
+
+    protected override void SeçenekSeçildi(string verilenKomut)
+    {
+        if (verilenKomut == "İşe Başvur")
+        {
+            İşeBaşvur();
+        }
+        else if (verilenKomut == "Çalış")
+        {
+            ÇalışmayaBaşla();
+        }
+        else if (verilenKomut=="Ayrıl")
+        {
+            İşDurumu = İşDurum.Yok;
+        }
+        else if (verilenKomut== "Satın Al")
+        {
+            if (Para.ParaBirim>=değer)
+            {
+                İşDurumu = İşDurum.Sahip;
+                Para.ParaBirim -= değer;
+            }
+            else
+            {
+                UyarıMesaj.mesajGD("Yeterli miktarda paranız yok", 3f);
             }
         }
     }

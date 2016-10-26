@@ -70,13 +70,19 @@ public class OyunHızAyarları : MonoBehaviour {
     {
         Zaman.zamanHızKatSayısı = 100;
         Zaman.zamanHızlandı();
-        if (değişim)
+        if (değişim && !Enerji.uyunuyor)
         {
             hızlandır.interactable = false;
             normal.interactable = durdur.interactable = true;
             tuşAktifliği = true;
         }
-        else
+        else if (Enerji.uyunuyor && değişim)
+        {
+            hızlandır.interactable = false;
+            normal.interactable = durdur.interactable = false;
+            tuşAktifliği = false;
+        }
+        else if(!değişim)
         {
             TuşlarıDeaktiveEt();
         }

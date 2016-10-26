@@ -11,7 +11,17 @@ namespace Assets.Kodlar.Harita_Birimleri
 
         protected override void SeçenekSeçildi(string verilenKomut)
         {
-            throw new NotImplementedException();
+            if (verilenKomut == "Kal")  //Yapılmadı
+            {
+                seçenekler = new string[] { "Uyan" };
+                UykuModu();
+            }
+            else if (verilenKomut=="Uyan")
+            {
+                DurumKontrol();
+                UykudanÇık();
+            }
         }
+        
     }
 }

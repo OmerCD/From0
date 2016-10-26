@@ -11,13 +11,13 @@ public class BilgiPaneli : MonoBehaviour {
     public Transform tuşAlanı;
     public Text isimAlanı, durumAlanı, fiyatAlanı;
     public static HaritaBirimi referansBirimi;
-    bool tuşGöster;
+    bool tuşGöster,panelGösterilecek;
     GameObject geçTuş;
 
 
     void Start () {
         gösterim = new Göster(BilgiPanelGöster);
-        Aktif = false;
+        Aktif =panelGösterilecek= false;
         tuşGöster = true;
         Zaman.zamanHızlandı += ZamanDeğişti;
         Zaman.zamanDurdu += ZamanDeğişti;
@@ -25,13 +25,18 @@ public class BilgiPaneli : MonoBehaviour {
 	}
     void ZamanDeğişti()
     {
-        Aktif = false;
-        tuşGöster = false;
+        panelGösterilecek = Aktif;
+        Aktif = tuşGöster = Enerji.uyunuyor;
         Destroy(geçTuş);
     }
     void ZamanNormal()
     {
         tuşGöster = true;
+        if (panelGösterilecek)
+        {
+            BilgiPanelGöster(true, referansBirimi);
+        }
+        panelGösterilecek = false;
     }
     void BilgiPanelGöster(bool aktiflik,HaritaBirimi birim)
     {
@@ -46,6 +51,7 @@ public class BilgiPaneli : MonoBehaviour {
 
             if (birim is Bina)
             {
+                TuşTemizle();
                 isimAlanı.text = birim.isim;
                 Bina geçBina = (Bina)birim;
                 fiyatAlanı.text = geçBina.değer.ToString();
@@ -69,6 +75,13 @@ public class BilgiPaneli : MonoBehaviour {
             Aktif = true;
         }
     }
+    void TuşTemizle()
+    {
+        for (int i = 0; i < tuşAlanı.childCount; i++)
+        {
+            Destroy(tuşAlanı.GetChild(i).gameObject);
+        }
+    }
    public bool Aktif
     {
         set
@@ -76,10 +89,7 @@ public class BilgiPaneli : MonoBehaviour {
             gameObject.SetActive(value);
             if (!value)
             {
-                for (int i = 0; i < tuşAlanı.childCount; i++)
-                {
-                    Destroy(tuşAlanı.GetChild(i).gameObject);
-                }
+                TuşTemizle();
             }
         }
         get

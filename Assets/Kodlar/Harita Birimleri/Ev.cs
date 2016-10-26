@@ -2,8 +2,8 @@
 using System.Collections;
 
 public abstract class Ev : Bina {
+    [SerializeField]
     private Durum evDurumu;
-
     public enum Durum
     {
         Kiracı,
@@ -12,7 +12,8 @@ public abstract class Ev : Bina {
     }
     public int metreKare;
     public float haftalıkÜcret,satınAlmaÜcreti;
-    void DurumKontrol()
+    Enerji enerji;
+    protected void DurumKontrol()
     {
         if (EvDurumu == Durum.Kiracı)
         {
@@ -32,7 +33,31 @@ public abstract class Ev : Bina {
         durumAdları = new string[] { "Kiracı", "Sahip", "Yok" };
         DurumKontrol();
     }
+    protected void UykuModu()
+    {
+        Enerji.uyunuyor = true;
+        OyunHızAyarları.oyunHızlandır(true);
 
+        Zaman.saatDeğişti += UykuKontrol;
+        enerji = GameObject.Find("Oyuncu Enerji Sistemleri").GetComponent<Enerji>();
+    }
+    void UykuKontrol()
+    {
+        
+        if (enerji.Değer>=enerji.MaksimumDeğer)
+        {
+            UykudanÇık();
+        }
+    }
+    protected void UykudanÇık()
+    {
+        DurumKontrol();
+        OyunHızAyarları.oyunNormalleştir(true);
+        Enerji.uyunuyor = false;
+        Zaman.saatDeğişti -= UykuKontrol;
+        enerji= null;
+
+    }
 
     public Durum EvDurumu
     {

@@ -4,9 +4,16 @@ using System;
 
 public class Enerji : EnerjiSistemi
 {
+    public static bool uyunuyor=false;
     public override void DeğerAzalması()
     {
-        Değer -= 5;
+        if (uyunuyor)
+        {
+            Değer += 15;
+        }
+        else {
+            Değer -= 5;
+        }
     }
 
     public override string DeğerSıfırlandı()

@@ -3,7 +3,7 @@ using System.Collections;
 using System;
 
 public abstract class EnerjiSistemi : MonoBehaviour{
-    protected float maksimumDeğer;
+    private float maksimumDeğer;
     protected float anlıkDeğer;
     public RectTransform enerjiBarı;
     public float Değer
@@ -14,7 +14,9 @@ public abstract class EnerjiSistemi : MonoBehaviour{
         }
         protected set
         {
-            anlıkDeğer = value;
+            if (value > maksimumDeğer)
+                anlıkDeğer = maksimumDeğer;
+            else anlıkDeğer = value;
             EnerjiSistemBarıDeğişimi();
             if (anlıkDeğer<=0)
             {
@@ -22,6 +24,20 @@ public abstract class EnerjiSistemi : MonoBehaviour{
             }
         }
     }
+
+    public float MaksimumDeğer
+    {
+        get
+        {
+            return maksimumDeğer;
+        }
+
+        protected set
+        {
+            maksimumDeğer = value;
+        }
+    }
+
     protected virtual void Start()
     {
         maksimumDeğer = 100;
